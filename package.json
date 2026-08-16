@@ -1,0 +1,12 @@
+{
+  "name": "apoyo-escolar",
+  "version": "2.0.0",
+  "description": "Apoyo Escolar - app educativa estática (sin servidor, sin base de datos). Progreso en localStorage, statements xAPI con cola offline.",
+  "scripts": {
+    "dev": "npx serve . -l 3000",
+    "start": "npx serve . -l 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
