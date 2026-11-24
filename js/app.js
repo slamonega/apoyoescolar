@@ -270,7 +270,7 @@ function setBreadcrumb(items) {
 
 // ===== Vistas =====
 function showSubjects() {
-  setBreadcrumb([{ label: '🎓 Apoyo Escolar' }]);
+  setBreadcrumb([]);
   const page = document.getElementById('page');
   page.innerHTML = `<h1 class="page-title">🎉 ${t('welcome')}!</h1>
     <h2 class="page-title" style="font-size:1.1em;color:var(--scout-texto-claro);">${t('chooseSubject')}</h2>
@@ -287,8 +287,7 @@ function showLevels(subjectCode) {
   const levels = getLevelsForSubject(subject.id);
   state.currentSubject = subject;
   setBreadcrumb([
-    { label: '🎓 Apoyo Escolar', action: 'showSubjects()' },
-    { label: tr(subject, 'name') },
+    { label: tr(subject, 'name'), action: 'showSubjects()' },
   ]);
   const page = document.getElementById('page');
   page.innerHTML = `<h1 class="page-title">${subject.icon} ${escHtml(tr(subject, 'name'))}</h1>
@@ -308,7 +307,6 @@ function showUnits(subjectCode, levelCode) {
   const units = getUnitsFor(subject.id, level.id);
   state.currentLevel = level;
   setBreadcrumb([
-    { label: '🎓 Apoyo Escolar', action: 'showSubjects()' },
     { label: tr(subject, 'name'), action: `showLevels('${subject.code}')` },
     { label: tr(level, 'name') },
   ]);
@@ -341,7 +339,6 @@ function showExercises(unitId) {
   state.currentExercises = exercises;
   state.unitTotals[unitId] = exercises.length;
   setBreadcrumb([
-    { label: '🎓 Apoyo Escolar', action: 'showSubjects()' },
     { label: tr(state.currentSubject, 'name'), action: `showLevels('${state.currentSubject.code}')` },
     { label: tr(state.currentLevel, 'name'), action: `showUnits('${state.currentSubject.code}','${state.currentLevel.code}')` },
     { label: tr(unit, 'title') },
@@ -599,7 +596,6 @@ function goToUnit(uid) {
 function showProgress() {
   const p = state.progress;
   setBreadcrumb([
-    { label: '🎓 Apoyo Escolar', action: 'showSubjects()' },
     { label: t('progress') },
   ]);
   const page = document.getElementById('page');
