@@ -4,15 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apoyo Escolar - Aprende gratis: Matemáticas, Español, Ciencias y más</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.png" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 
   <!-- ===== APP ===== -->
   <div id="app" class="app">
+    <!-- Header institucional estilo elsoguin -->
+    <header class="institutional-header">
+      <div class="container">
+        <img src="logo.png" alt="Apoyo Escolar" class="institutional-logo" />
+        <h1 class="institutional-title">Apoyo Escolar</h1>
+        <p class="institutional-tagline">Una comunidad de aprendizajes alrededor de una biblioteca de bienes comunes</p>
+      </div>
+    </header>
+
     <div class="topbar">
       <div class="breadcrumb" id="breadcrumb"></div>
       <div class="user-area">
@@ -21,18 +28,25 @@
           <option value="en">🇬🇧 EN</option>
           <option value="de">🇩🇪 DE</option>
         </select>
-        <button class="btn btn-outline" style="padding: 0.4em 0.9em; font-size: 0.9em;" onclick="showProgress()">📊 Mi progreso</button>
+        <button class="btn btn-outline btn-sm" onclick="showProgress()">📊 Mi progreso</button>
       </div>
     </div>
     <div class="stats-bar" id="stats-bar"></div>
     <div class="page" id="page"></div>
   </div>
 
+  <!-- Footer institucional estilo elsoguin -->
+  <footer class="institutional-footer" role="contentinfo">
+    <div class="container">
+      <small>Apoyo Escolar · Educación libre y accesible para todos</small>
+    </div>
+  </footer>
+
   <!-- ===== xAPI / LRS SETTINGS MODAL ===== -->
   <div class="modal-overlay" id="xapi-modal">
     <div class="modal">
       <h2>⚙️ xAPI (LRS)</h2>
-      <p style="color:#666;font-size:0.9em;margin-bottom:1em;">
+      <p class="modal-description">
         Cada respuesta se registra como un statement xAPI estándar. Sin LRS, los statements se guardan localmente y se envían cuando configures uno.
       </p>
       <div class="form-group">
@@ -56,8 +70,8 @@
         <input type="password" id="xapi-password" placeholder="Basic Auth password" />
       </div>
       <div class="error-msg" id="xapi-status"></div>
-      <button class="btn btn-primary" style="width: 100%; font-size: 1.05em;" onclick="saveXAPISettings()">Guardar</button>
-      <button class="btn btn-outline" style="width: 100%; margin-top: 0.6em;" onclick="flushXAPI()">Enviar pendientes ahora</button>
+      <button class="btn btn-primary btn-lg w-100" onclick="saveXAPISettings()">Guardar</button>
+      <button class="btn btn-outline btn-lg w-100 mt-1" onclick="flushXAPI()">Enviar pendientes ahora</button>
     </div>
   </div>
 

@@ -273,9 +273,9 @@ function showSubjects() {
   setBreadcrumb([{ label: '🎓 Apoyo Escolar' }]);
   const page = document.getElementById('page');
   page.innerHTML = `<h1 class="page-title">🎉 ${t('welcome')}!</h1>
-    <h2 class="page-title" style="font-size:1.1em;color:#666;">${t('chooseSubject')}</h2>
+    <h2 class="page-title" style="font-size:1.1em;color:var(--scout-texto-claro);">${t('chooseSubject')}</h2>
     <div class="subject-list">${state.subjects.map(s => `
-      <div class="subject-tile" style="background:${s.color}" onclick="showLevels('${s.code}')">
+      <div class="subject-tile" data-subject="${s.code}" onclick="showLevels('${s.code}')">
         <div class="icon">${s.icon}</div>
         <div class="name">${escHtml(tr(s, 'name'))}</div>
       </div>`).join('')}
@@ -292,7 +292,7 @@ function showLevels(subjectCode) {
   ]);
   const page = document.getElementById('page');
   page.innerHTML = `<h1 class="page-title">${subject.icon} ${escHtml(tr(subject, 'name'))}</h1>
-    <h2 class="page-title" style="font-size:1.1em;color:#666;">${t('chooseLevel')}</h2>
+    <h2 class="page-title" style="font-size:1.1em;color:var(--scout-texto-claro);">${t('chooseLevel')}</h2>
     <div class="level-list">${levels.map(l => `
       <div class="level-tile" onclick="showUnits('${subject.code}','${l.code}')">
         <div class="icon">🎒</div>
@@ -348,7 +348,7 @@ function showExercises(unitId) {
   ]);
   const page = document.getElementById('page');
   if (!exercises.length) {
-    page.innerHTML = `<h1 class="page-title">${escHtml(tr(unit, 'title'))}</h1><p style="color:#999;">${t('noExercises')}</p>`;
+    page.innerHTML = `<h1 class="page-title">${escHtml(tr(unit, 'title'))}</h1><p style="color:var(--scout-texto-claro);">${t('noExercises')}</p>`;
     return;
   }
   const doneIds = state.progress.byUnit[unitId] || [];
@@ -474,7 +474,7 @@ function checkFill() {
   const payload = JSON.parse(state.currentExercise.payload);
   const accept = (payload.accept || [payload.answer]).map(a => String(a).toLowerCase());
   const correct = accept.includes(val);
-  input.style.borderColor = correct ? 'var(--green)' : 'var(--red)';
+  input.style.borderColor = correct ? 'var(--scout-exito)' : 'var(--scout-error)';
   input.disabled = true;
   submitResult(correct, input.value.trim());
 }
@@ -625,7 +625,7 @@ function showProgress() {
         <div class="up-name">${escHtml(r.title)}</div>
         <div class="up-bar"><div class="up-fill" style="width:${r.pct}%"></div></div>
         <div class="up-pct">${r.done}/${r.total} (${r.pct}%)</div>
-      </div>`).join('') : '<p style="color:#999;">' + t('noExercises') + '</p>'}
+      </div>`).join('') : '<p style="color:var(--scout-texto-claro);">' + t('noExercises') + '</p>'}
   `;
 }
 
