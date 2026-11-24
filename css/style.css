@@ -980,7 +980,7 @@ input, select { font-family: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5em 1.25em;
+  padding: 0.75em 1.25em;
   background: var(--scout-card-bg);
   border-bottom: 1px solid var(--scout-borde);
   position: sticky;
@@ -1021,19 +1021,12 @@ input, select { font-family: inherit; }
 }
 
 .app-logo {
-  height: 36px;
+  height: 100px;
   width: auto;
-  max-width: 36px;
+  max-width: 100px;
   object-fit: contain;
-  filter: drop-shadow(0 1px 3px rgba(11, 37, 69, 0.15));
+  filter: drop-shadow(0 2px 6px rgba(11, 37, 69, 0.15));
   flex-shrink: 0;
-}
-
-.app-name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 160px;
 }
 
 .topbar .breadcrumb {
@@ -1073,10 +1066,9 @@ input, select { font-family: inherit; }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .topbar { padding: 0.5em 1em; }
+  .topbar { padding: 0.6em 1em; }
   .topbar-left { gap: 0.75em; }
-  .app-logo { height: 32px; max-width: 32px; }
-  .app-name { max-width: 120px; font-size: 1em; }
+  .app-logo { height: 70px; max-width: 70px; }
   .topbar .breadcrumb { font-size: 0.85em; }
   .topbar .user-name { display: none; }
   .stats-bar { padding: 0.6em 1em; gap: 0.5em; }
@@ -1098,8 +1090,8 @@ input, select { font-family: inherit; }
 }
 
 @media (max-width: 480px) {
-  .app-name { display: none; }
   .topbar .breadcrumb { font-size: 0.8em; }
+  .app-logo { height: 60px; max-width: 60px; }
   .subject-list { grid-template-columns: repeat(2, 1fr); }
   .level-list { grid-template-columns: repeat(2, 1fr); }
   .exercise-list { grid-template-columns: 1fr; }
